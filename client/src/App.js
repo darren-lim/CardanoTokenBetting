@@ -37,7 +37,7 @@ state = {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hello World
         </a>
       </header>
     </div>
