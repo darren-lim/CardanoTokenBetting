@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { render } from "react-dom";
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 
 class App extends Component {
-state = {
-    data: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      loadPage: true
+    }
+  }
+
+  checkLogin = () => {
+    // login logic
+  }
 
   componentDidMount() {
     this.callBackendAPI()
@@ -24,24 +33,33 @@ state = {
   };
 
   render() {
-    return (
-      <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello World
-        </a>
-      </header>
-    </div>
-    );
+    if(!this.state.loadPage) {
+      // change later
+      return <div>Loading . . .</div>
+    } else {
+      return (
+        <Router>
+          {this.state.isLoggedIn === false ?
+            <React.Fragment>
+              <div className="App">
+                  <header className="App-header">
+                    <h1>Not Logged In</h1>
+                  </header>
+                </div>
+            </React.Fragment>
+          :
+            <React.Fragment>
+              <div className="App">
+                  <header className="App-header">
+                    <h1>Logged In</h1>
+                  </header>
+                </div>
+            </React.Fragment>
+          }
+        </Router>
+        
+      );
+    }
   }
 }
 
