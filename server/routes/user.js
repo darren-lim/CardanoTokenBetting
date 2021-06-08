@@ -12,6 +12,7 @@ router.post('/signup', async (req, res) => {
 
     newUser.save((err, User) => {
         if (err) {
+            console.log(err)
             return res.status(400).json({
                 message: "Failed to add user",
             });
