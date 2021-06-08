@@ -17,7 +17,9 @@ const app = express();
 var corsOptions = {
   origin: "http://localhost:5000"
 };
+
 app.use(cors(corsOptions));
+app.use(require('./routes'));
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to BURGERS." });
