@@ -7,8 +7,8 @@ router.post('/signup', async (req, res) => {
     let newUser = new User();
     newUser.username = req.body.username;
     newUser.email = req.body.email;
-    newUser.password = req.body.password;
-    newUser.setPassword(req.body.password);
+    await newUser.setPassword(req.body.password);
+
     // Save user to Mongodb
     newUser.save((err) => {
         if (err) {
@@ -24,21 +24,25 @@ router.post('/signup', async (req, res) => {
 }); 
 
 router.post('/login', async (req, res) => {
-    // User.findOne({ email : req.body.email }, (err, username) => {
-    //     if (username === null) {
-    //         return res.status(400).json({
-    //             message: "User not found"
-    //         });
-    //     } else {
-    //         if (username.)
-    //     }
-    // });
-
-    // try {
-    //     res.send( "login" );
-    // } catch (e) {
-    //     res.send({ message: "Error in fetching user" });
-    // }
+    User.findOne({ username : req.body.username }, async (err, user) => {
+        // Check if user exists
+        if (user === null) {
+            return res.status(400).json({
+                message: "User not found"
+            });
+        // If user exists, check if password is correct
+        } else {
+            if (await user.passwordIsValid(req.body.password)) {
+                return res.status(400).json({
+                    message: "User logged in",
+                });
+            } else {
+                return res.status(400).json({
+                    message: "Incorrect password",
+                });
+            }
+        }
+    });
 }); 
 
 module.exports = router; 

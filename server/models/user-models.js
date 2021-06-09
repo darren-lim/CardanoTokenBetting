@@ -25,5 +25,9 @@ UserSchema.methods.setPassword = async function(password) {
     this.password = await bcrypt.hash(password, salt);
 };
 
+UserSchema.methods.passwordIsValid = async function(password) {
+    return await bcrypt.compare(password, this.password);
+}
+
 
 module.exports = mongoose.model("user", UserSchema);
