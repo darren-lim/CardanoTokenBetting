@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+
 // Define User Model for Login Credentials
 const UserSchema = new Schema ({
     username: {
@@ -21,8 +22,8 @@ const UserSchema = new Schema ({
 });
 
 UserSchema.methods.setPassword = async function(password) {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(password, salt);
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(password, saltRounds);
 };
 
 UserSchema.methods.passwordIsValid = async function(password) {

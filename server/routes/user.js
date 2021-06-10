@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user-models');
 
+
 router.post('/signup', async (req, res) => {
     
     let newUser = new User();
     newUser.username = req.body.username;
     newUser.email = req.body.email;
     await newUser.setPassword(req.body.password);
-
+    console.log(`password: ${newUser.password}`)
     // Save user to Mongodb
     newUser.save((err) => {
         if (err) {
