@@ -1,0 +1,52 @@
+.NavbarNLI {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    background: #673F9A;
+    transition: 0.2s;
+}
+
+.nav-brand {
+    color: white !important;
+    font-family: Arial;
+    font-size: 28px;
+    font-weight: 200;
+    padding: 0px;
+}
+
+.NavbarNLI .login { 
+    color: white;
+    font-family: Arial;
+    font-size: 18px;
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    transition: all 0.3s ease 0s; 
+    padding-right: 10px;
+}
+
+.NavbarNLI .login:hover{
+    color: #FFB92F;
+}
+
+.NavbarNLI .signup {
+    font-family: Arial;
+    font-size: 18px;
+    color: black;
+    padding: 5px 14px;
+    margin: 4px;
+    border: 1px solid white;
+    background-color: #ffffff;
+    transition: all 0.3s ease 0s; 
+    border-radius: 16px;
+    text-align: center;
+}
+
+.NavbarNLI .signup:hover{
+    border:1px solid transparent;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    background-color: #FFB92F;
+} 

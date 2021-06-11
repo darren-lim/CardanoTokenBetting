@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import Landing from '../components/Home/Landing/Landing';
 import './App.css';
 
+// Home Page
 class App extends Component {
   constructor(props) {
     super(props);
@@ -41,11 +43,11 @@ class App extends Component {
         <Router>
           {this.state.isLoggedIn === false ?
             <React.Fragment>
-              <div className="App">
-                  <header className="App-header">
-                    <h1>Not Logged In</h1>
-                  </header>
-                </div>
+              <Switch>
+                <Route exact path="/" render={props =>(
+                  <Landing {...props}/>
+                )} />
+              </Switch>
             </React.Fragment>
           :
             <React.Fragment>
