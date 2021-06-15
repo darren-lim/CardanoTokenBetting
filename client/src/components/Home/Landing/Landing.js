@@ -12,7 +12,7 @@ class Landing extends Component {
     render() { 
         return (
             <div className="Landing">
-                <NavbarLI/>
+                <NavbarNLI/>
                 <div className="App">
                   <header className="App-header">
                     <h1>Not Logged In</h1>
