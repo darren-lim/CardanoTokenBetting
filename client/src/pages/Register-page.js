@@ -97,7 +97,6 @@ class Register extends Component {
             
     }
     
-
     render() {
         return (
             <div className= "card card-container">

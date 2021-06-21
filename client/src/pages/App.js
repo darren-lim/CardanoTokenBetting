@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Landing from '../components/Home/Landing/Landing';
 import './App.css';
-import Register from './Register-page';
+import Register from '../pages/Register-page';
 
 
 // Home Page
@@ -58,7 +58,7 @@ class App extends Component {
                   {/* <header className="App-header">
                     <h1>Logged In</h1>
                   </header> */}
-                </div>
+               </div>
             </React.Fragment>
           }
         </Router>
