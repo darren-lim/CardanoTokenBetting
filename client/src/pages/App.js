@@ -3,13 +3,15 @@ import { render } from "react-dom";
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Landing from '../components/Home/Landing/Landing';
 import './App.css';
+import Register from '../pages/Register';
+
 
 // Home Page
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
       loadPage: true
     }
   }
@@ -37,7 +39,7 @@ class App extends Component {
   render() {
     if(!this.state.loadPage) {
       // change later
-      return <div>Loading . . .</div>
+       return <div>Loading . . .</div>
     } else {
       return (
         <Router>
@@ -52,9 +54,10 @@ class App extends Component {
           :
             <React.Fragment>
               <div className="App">
-                  <header className="App-header">
+                  <Register></Register>
+                  {/* <header className="App-header">
                     <h1>Logged In</h1>
-                  </header>
+                  </header> */}
                 </div>
             </React.Fragment>
           }

@@ -1,6 +1,4 @@
 import axios from 'axios';
-import acios from 'axios';
-import { response } from 'express';
 
 const API_URL = "http://localhost:5000/api/"
 
