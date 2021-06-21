@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/App';
+import Register from './pages/Register';
 import reportWebVitals from './tests/reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Register />
   </React.StrictMode>,
   document.getElementById('root')
 );
