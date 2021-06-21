@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-
+import './Register-page.css';
 import AuthService from '../services/auth';
 
 // const required = value => {
@@ -100,7 +100,7 @@ class Register extends Component {
 
     render() {
         return (
-            <div className= "register card-container">
+            <div className= "card card-container">
                 <form onSubmit={this.handleRegister}>
                     <div className="register card-form">
                         <div className="form-group">
