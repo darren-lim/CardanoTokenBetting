@@ -5,21 +5,45 @@ const User = require('../models/user-models');
 const jwt = require('jsonwebtoken');
 
 router.post('/signup', async (req, res) => {
-    let newUser = new User();
-    newUser.username = req.body.username;
-    newUser.email = req.body.email;
-    await newUser.setPassword(req.body.password);
-    // Save user to Mongodb
-    newUser.save((err) => {
-        if (err) {
-            return res.status(400).json({
-                message: "Failed to add user",
-            });
+   
+    User.findOne({
+        $or: [{
+            username: req.body.username
+        }, {
+            email: req.body.email
+        }]
+    }).then(async user => {
+        if (user) {
+            let errors = {};
+            if (user.username === req.body.username) {
+                errors.username = "Username already exists";
+            } 
+            if (user.email === req.body.email) {
+                errors.email = "Email already exists";
+            }
+            return res.status(400).json(errors);
         } else {
-            return res.status(201).json({
-                message: "User added sucessfully",
+            // Save user to Mongodb
+            let newUser = new User();
+            newUser.username = req.body.username;
+            newUser.email = req.body.email;
+            await newUser.setPassword(req.body.password);
+            newUser.save((err) => {
+                if (err) {
+                    return res.status(400).json({
+                        message: "Failed to add user",
+                    });
+                } else {
+                    return res.status(201).json({
+                        message: "User added sucessfully",
+                    });
+                }
             });
         }
+    }).catch(err => {
+        return res.status(500).json({
+            error: err
+        });
     });
 }); 
 
