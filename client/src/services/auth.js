@@ -4,8 +4,13 @@ const API_URL = "http://localhost:5000/api/"
 
 class AuthService {
     // POST new user info
-    register(username, email, password) {
-        return axios.post(API_URL + 'signup', { username, email, password });
+    async register(username, email, password) {
+        await axios.post(API_URL + 'signup', { username, email, password })
+            .then((response) => {
+                return response.data;
+            }).catch((error) => {
+                return error.response.data;
+            });
     }
 
     // POST login info and receive/store jwt token
