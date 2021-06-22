@@ -5,34 +5,34 @@ import AuthService from '../services/auth';
 
 // const required = value => {
 //     if (!value) {
-//       return (
-//         <div className="alert alert-danger" role="alert">
-//           This field is required!
-//         </div>
-//       );
+//         return (
+//             <div className="alert alert-danger" role="alert">
+//                 This field is required!
+//             </div>
+//         );
 //     }
-//   };
+// };
   
 
-//   const vusername = value => {
-//     if (value.length < 3 || value.length > 20) {
-//       return (
-//         <div className="alert alert-danger" role="alert">
-//           The username must be between 3 and 20 characters.
-//         </div>
-//       );
-//     }
-//   };
+  const verifyUsername = value => {
+        if (value.length < 3 || value.length > 20) {
+            return (
+                <div className="alert alert-danger" role="alert">
+                    <span>The username must be between 3 and 20 characters.</span>
+                </div>
+            );
+        }
+  };
   
-//   const vpassword = value => {
-//     if (value.length < 6 || value.length > 40) {
-//       return (
-//         <div className="alert alert-danger" role="alert">
-//           The password must be between 6 and 40 characters.
-//         </div>
-//       );
-//     }
-//   };
+const verifyPassword = value => {
+    if (value.length < 6 || value.length > 40) {
+        return (
+        <div className="alert alert-danger" role="alert">
+            The password must be between 6 and 40 characters.
+        </div>
+        );
+    }
+};
   
 
 class Register extends Component {
@@ -43,8 +43,8 @@ class Register extends Component {
             username: "",
             email: "",
             password: "",
-            successful: false,
-            message: "",
+            formIsValid: false,
+            errors: {},
         }
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -65,36 +65,43 @@ class Register extends Component {
         this.setState({password: e.target.value});
     }
     
+    handleValidation() {
+        let username = this.state.username;
+        let email = this.state.email;
+        let password = this.state.password;
+        let errors = {};
+        let formIsValid = true;
+
+        if (!username) {
+            formIsValid = false;
+            errors['username'] = "Cannot be empty";
+            console.log("empty")
+        }
+        if (!email) {
+            formIsValid = false;
+            errors['email'] = "Cannot be empty";
+            console.log("empty")
+        }
+        if (!password) {
+            formIsValid = false;
+            errors['password'] = "Cannot be empty";
+            console.log("empty")
+        }
+
+        this.setState({errors: errors});
+        return formIsValid;
+    }
+    
     handleRegister(e) {
-        AuthService.register(
-            this.state.username,
-            this.state.email,
-            this.state.password,
-        );
-        console.log("registered");
         e.preventDefault();
 
-            // ).then(
-            // response => {
-            //     this.setState({
-            //     message: response.data.message,
-            //     successful: true
-            //     });
-            // },
-            // error => {
-            //     const resMessage =
-            //     (error.response &&
-            //         error.response.data &&
-            //         error.response.data.message) ||
-            //     error.message ||
-            //     error.toString();
-
-            //     this.setState({
-            //     successful: false,
-            //     message: resMessage
-            //     });
-            // }
-            
+        if (this.handleValidation()) {
+            AuthService.register(
+                this.state.username,
+                this.state.email,
+                this.state.password,
+            );  
+        }
     }
     
     render() {
@@ -110,8 +117,8 @@ class Register extends Component {
                                 name="username"
                                 value={this.state.username}
                                 onChange={this.onChangeUsername}
-                                // validations={[required, vusername]}
                             />
+                            <span style={{color: "red"}}>{this.state.errors['username']}</span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
@@ -122,6 +129,7 @@ class Register extends Component {
                                 value={this.state.email}
                                 onChange={this.onChangeEmail} 
                             />
+                            <span style={{color: "red"}}>{this.state.errors['email']}</span>
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
@@ -131,8 +139,8 @@ class Register extends Component {
                                 name="password"
                                 value={this.state.password}
                                 onChange={this.onChangePassword}
-                                // validations={[required, vpassword]}
                             />
+                            <span style={{color: "red"}}>{this.state.errors['password']}</span>
                         </div>
                         <div className="form-group">
                             <input className="btn btn-primary btn-block" type="submit" value="Sign Up"/>

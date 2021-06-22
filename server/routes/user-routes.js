@@ -9,7 +9,6 @@ router.post('/signup', async (req, res) => {
     newUser.username = req.body.username;
     newUser.email = req.body.email;
     await newUser.setPassword(req.body.password);
-    console.log(`password: ${newUser.password}`)
     // Save user to Mongodb
     newUser.save((err) => {
         if (err) {
