@@ -7,7 +7,6 @@ import AuthService from '../services/auth-services';
 import Register from '../pages/Register-page';
 
 
-
 // Home Page
 class App extends Component {
     constructor(props) {

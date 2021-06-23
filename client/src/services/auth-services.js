@@ -3,14 +3,10 @@ import axios from 'axios';
 const API_URL = "http://localhost:5000/api/"
 
 class AuthService {
+
     // POST new user info
     async register(username, email, password) {
-        await axios.post(API_URL + 'signup', { username, email, password })
-            .then((response) => {
-                return response.data;
-            }).catch((error) => {
-                return error.response.data;
-            });
+        return await axios.post(API_URL + 'signup', { username, email, password });
     }
 
     // POST login info and receive/store jwt token

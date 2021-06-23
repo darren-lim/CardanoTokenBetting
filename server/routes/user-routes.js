@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/user-models');
 
 const jwt = require('jsonwebtoken');
+const { response } = require('express');
 
 router.post('/signup', async (req, res) => {
    
@@ -21,7 +22,7 @@ router.post('/signup', async (req, res) => {
             if (user.email === req.body.email) {
                 errors.email = "Email already exists";
             }
-            return res.status(400).json(errors);
+            return res.send(errors);
         } else {
             // Save user to Mongodb
             let newUser = new User();

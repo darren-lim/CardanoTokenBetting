@@ -3,37 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Register-page.css';
 import AuthService from '../services/auth-services';
 
-// const required = value => {
-//     if (!value) {
-//         return (
-//             <div className="alert alert-danger" role="alert">
-//                 This field is required!
-//             </div>
-//         );
-//     }
-// };
-  
-
-  const verifyUsername = value => {
-        if (value.length < 3 || value.length > 20) {
-            return (
-                <div className="alert alert-danger" role="alert">
-                    <span>The username must be between 3 and 20 characters.</span>
-                </div>
-            );
-        }
-  };
-  
-const verifyPassword = value => {
-    if (value.length < 6 || value.length > 40) {
-        return (
-        <div className="alert alert-danger" role="alert">
-            The password must be between 6 and 40 characters.
-        </div>
-        );
-    }
-};
-  
 
 class Register extends Component {
     constructor(props) {
@@ -75,33 +44,31 @@ class Register extends Component {
         if (!username) {
             formIsValid = false;
             errors['username'] = "Cannot be empty";
-            console.log("empty")
         }
         if (!email) {
             formIsValid = false;
             errors['email'] = "Cannot be empty";
-            console.log("empty")
         }
         if (!password) {
             formIsValid = false;
             errors['password'] = "Cannot be empty";
-            console.log("empty")
         }
 
         this.setState({errors: errors});
         return formIsValid;
     }
     
-    handleRegister(e) {
+    async handleRegister(e) {
         e.preventDefault();
 
         if (this.handleValidation()) {
-            let errors = AuthService.register(
+            const response = await AuthService.register(
                 this.state.username,
                 this.state.email,
                 this.state.password,
-            );  
-            this.setState({errors: errors});
+            )
+            console.log("In pages: ", response.data);
+            this.setState({errors: response.data});
         }
     }
     
