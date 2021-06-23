@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Register-page.css';
 import AuthService from '../services/auth-services';
+import RegisterService from '../services/register-services';
 
 
 class Register extends Component {
@@ -12,7 +13,6 @@ class Register extends Component {
             username: "",
             email: "",
             password: "",
-            formIsValid: false,
             errors: {},
         }
 
@@ -34,40 +34,22 @@ class Register extends Component {
         this.setState({password: e.target.value});
     }
     
-    handleValidation() {
-        let username = this.state.username;
-        let email = this.state.email;
-        let password = this.state.password;
-        let errors = {};
-        let formIsValid = true;
-
-        if (!username) {
-            formIsValid = false;
-            errors['username'] = "Cannot be empty";
-        }
-        if (!email) {
-            formIsValid = false;
-            errors['email'] = "Cannot be empty";
-        }
-        if (!password) {
-            formIsValid = false;
-            errors['password'] = "Cannot be empty";
-        }
-
-        this.setState({errors: errors});
-        return formIsValid;
-    }
-    
     async handleRegister(e) {
         e.preventDefault();
 
-        if (this.handleValidation()) {
+        const result = RegisterService.handleValidation(
+            this.state.username, 
+            this.state.email,
+            this.state.password,
+        );
+        this.setState({errors: result.errors});
+
+        if (result.formIsValid) {
             const response = await AuthService.register(
                 this.state.username,
                 this.state.email,
                 this.state.password,
             )
-            console.log("In pages: ", response.data);
             this.setState({errors: response.data});
         }
     }
