@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Register-page.css';
-import AuthService from '../services/auth';
+import AuthService from '../services/auth-services';
 
 // const required = value => {
 //     if (!value) {
@@ -96,11 +96,12 @@ class Register extends Component {
         e.preventDefault();
 
         if (this.handleValidation()) {
-            AuthService.register(
+            let errors = AuthService.register(
                 this.state.username,
                 this.state.email,
                 this.state.password,
             );  
+            this.setState({errors: errors});
         }
     }
     

@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Landing from '../components/Home/Landing/Landing';
 import './App.css';
-import AuthService from '../services/auth';
+import AuthService from '../services/auth-services';
 import Register from '../pages/Register-page';
 
 
