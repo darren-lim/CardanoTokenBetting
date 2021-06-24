@@ -37,6 +37,7 @@ class Register extends Component {
     async handleRegister(e) {
         e.preventDefault();
 
+        // result = {bool formIsValid, {} errors}
         const result = RegisterService.handleValidation(
             this.state.username, 
             this.state.email,

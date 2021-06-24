@@ -31,7 +31,6 @@ class App extends Component {
 
     componentDidMount() {
         this.checkLogin();
-
         this.callBackendAPI()
         .then(res => this.setState({ data: res.express }))
         .catch(err => console.log(err));
@@ -50,29 +49,29 @@ class App extends Component {
 
     render() {
         if(!this.state.loadPage) {
-        // change later
-        return <div>Loading . . .</div>
+            // change later
+            return <div>Loading . . .</div>
         } else {
-        return (
-            <Router>
-            {this.state.isLoggedIn === false ?
-                <React.Fragment>
-                <Switch>
-                    <Route exact path="/" render={props =>(
-                    <Landing {...props}/>
-                    )} />
-                </Switch>
-                </React.Fragment>
-            :
-                <React.Fragment>
-                <div className="App">
-                    <Register></Register>
-                </div>
-                </React.Fragment>
-            }
-            </Router>
-            
-        );
+            return (
+                <Router>
+                {this.state.isLoggedIn === false ?
+                    <React.Fragment>
+                    <Switch>
+                        <Route exact path="/" render={props =>(
+                        <Landing {...props}/>
+                        )} />
+                    </Switch>
+                    </React.Fragment>
+                :
+                    <React.Fragment>
+                    <div className="App">
+                        <Register></Register>
+                    </div>
+                    </React.Fragment>
+                }
+                </Router>
+                
+            );
         }
     }
 }
