@@ -14,7 +14,10 @@ class AuthService {
         const response = await axios
             .post(API_URL + 'login', { username, password });
         if (response.data.accessToken) {
+            console.log("login: ", response.data);
             localStorage.setItem('user', JSON.stringify(response.data));
+        } else {
+            console.log("login- in error: ", response.data);
         }
         return response.data;
     }

@@ -5,6 +5,7 @@ import Landing from '../components/Home/Landing/Landing';
 import './App.css';
 import AuthService from '../services/auth-services';
 import Register from '../pages/Register-page';
+import Login from '../pages/Login-page';
 
 
 // Home Page
@@ -65,7 +66,7 @@ class App extends Component {
                 :
                     <React.Fragment>
                     <div className="App">
-                        <Register></Register>
+                        <Login></Login>
                     </div>
                     </React.Fragment>
                 }

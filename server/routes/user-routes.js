@@ -52,14 +52,14 @@ router.post('/login', async (req, res) => {
     User.findOne({ username : req.body.username }, async (err, user) => {
         // Check if user exists
         if (user === null) {
-            return res.status(400).json({
-                message: "User not found"
+            return res.send({
+                username: "Username not found"
             });
         // If user exists, check if password is correct
         } else {
             if (!await user.passwordIsValid(req.body.password)) {
-                return res.status(400).json({
-                    message: "Incorrect password",
+                return res.send({
+                    password: "Incorrect password"
                 });
             }
 

@@ -17,7 +17,6 @@ class Register extends Component {
         }
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
     }
@@ -37,7 +36,7 @@ class Register extends Component {
     async handleRegister(e) {
         e.preventDefault();
 
-        // result = {bool formIsValid, {} errors}
+        // result = { {} errors, bool formIsValid }
         const result = RegisterService.handleValidation(
             this.state.username, 
             this.state.email,
