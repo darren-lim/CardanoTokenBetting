@@ -1,0 +1,36 @@
+.card {
+    margin: auto;
+    margin-top: 150px;
+    width: 450px;
+ 
+}
+
+.card-title-header {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.card-title-header h1 {
+    font-weight: 350;
+    font-size: 2rem;
+}
+
+.form-group-label {
+    float: left;
+}
+
+.btn {
+    width: 140px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.card-login-register-header h2 {
+    font-weight: 350;
+    font-size: 0.8rem;
+}
+
+.link-to-register {
+    font-size: 0.8rem;
+}

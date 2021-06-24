@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import NavbarNLI from "../../NavbarNotLoggedIn/NavbarNLI";
 import NavbarLI from "../../NavbarLoggedIn/NavbarLI";
+import Login from '../../../pages/Login-page';
+
 
 class Landing extends Component {
     constructor(props) {
@@ -14,9 +16,7 @@ class Landing extends Component {
             <div className="Landing">
                 <NavbarNLI/>
                 <div className="App">
-                  <header className="App-header">
-                    <h1>Not Logged In</h1>
-                  </header>
+                    <Login/>
                 </div>
             </div>
         )

@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import 'bootstrap/dist/css/bootstrap.css';
+import './Login-page.css';
+
 import AuthService from '../services/auth-services';
 import LoginService from '../services/login-services';
+
 
 class Login extends Component {
     constructor(props) {
@@ -52,8 +57,13 @@ class Login extends Component {
             <div className= "card card-container">
                 <form onSubmit={this.handleLogin}>
                     <div className="login card-form">
+                        <div className="card-title">
+                            <header className="card-title-header">
+                                <h1>Log In</h1>
+                            </header>
+                        </div>
                         <div className="form-group">
-                            <label htmlFor="username">Username</label>
+                            <label className="form-group-label">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -64,7 +74,7 @@ class Login extends Component {
                             <span style={{color: "red"}}>{this.state.errors['username']}</span>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
+                            <label className="form-group-label">Password</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -75,10 +85,18 @@ class Login extends Component {
                             <span style={{color: "red"}}>{this.state.errors['password']}</span>
                         </div>
                         <div className="form-group">
-                            <input className="btn btn-primary btn-block" type="submit" value="Sign Up"/>
+                            <input className="btn btn-primary" type="submit" value="Log In"/>
                         </div>
                     </div>
                 </form>
+                <div className="card-login-register">
+                    <header className="card-login-register-header">
+                        <h2>Don't Have an Account?</h2>
+                    </header>
+                    <div className="link-to-register">
+                        <Link to="/register">Sign Up</Link>
+                    </div>
+                </div>
             </div>
         );
     }

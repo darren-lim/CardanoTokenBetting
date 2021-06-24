@@ -14,19 +14,8 @@ class App extends Component {
         super(props);
         this.state = {
             currentUser: undefined,
-            isLoggedIn: true,
+            isLoggedIn: false,
             loadPage: true,
-            formIsValid: true,
-        }
-    }
-
-    checkLogin = () => {
-        // login logic
-        const user = AuthService.getCurrentUser();
-        if (user) {
-            this.setState({
-                currentUser: user,
-            })
         }
     }
 
@@ -35,6 +24,16 @@ class App extends Component {
         this.callBackendAPI()
         .then(res => this.setState({ data: res.express }))
         .catch(err => console.log(err));
+    }
+
+    // checking Local Storage for jwt token
+    checkLogin = () => {
+        const user = AuthService.getCurrentUser();
+        if (user) {
+            this.setState({
+                currentUser: user,
+            })
+        }
     }
 
     // fetching the GET route from the Express server which matches the GET route from server.js

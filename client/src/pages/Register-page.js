@@ -17,6 +17,7 @@ class Register extends Component {
         }
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
     }
