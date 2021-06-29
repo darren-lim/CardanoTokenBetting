@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NavbarNLI from "../../NavbarNotLoggedIn/NavbarNLI";
 import NavbarLI from "../../NavbarLoggedIn/NavbarLI";
 import Login from '../../../pages/Login-page';
+import "./Landing.css";
 
 
 class Landing extends Component {
@@ -15,7 +16,7 @@ class Landing extends Component {
         return (
             <div className="Landing">
                 <NavbarNLI/>
-                <div className="App">
+                <div className="login-component">
                     <Login/>
                 </div>
             </div>

@@ -3,9 +3,11 @@ import { render } from "react-dom";
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Landing from '../components/Home/Landing/Landing';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 import AuthService from '../services/auth-services';
-import Register from '../pages/Register-page';
 import Login from '../pages/Login-page';
+import Register from '../pages/Register-page';
 
 
 // Home Page
@@ -60,6 +62,8 @@ class App extends Component {
                         <Route exact path="/" render={props =>(
                         <Landing {...props}/>
                         )} />
+                        <Route exact path="/register" component={Register}></Route>
+                        <Route exact path="/login" component={Login}></Route>
                     </Switch>
                     </React.Fragment>
                 :

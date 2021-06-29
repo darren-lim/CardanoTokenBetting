@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import 'bootstrap/dist/css/bootstrap.css';
 import './Login-page.css';
 
 import AuthService from '../services/auth-services';
@@ -54,7 +53,7 @@ class Login extends Component {
     
     render() {
         return (
-            <div className= "card card-container">
+            <div className= "card card-container card-container-login text-center">
                 <form onSubmit={this.handleLogin}>
                     <div className="login card-form">
                         <div className="card-title">
@@ -84,13 +83,13 @@ class Login extends Component {
                             />
                             <span style={{color: "red"}}>{this.state.errors['password']}</span>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group form-group-btn">
                             <input className="btn btn-primary" type="submit" value="Log In"/>
                         </div>
                     </div>
                 </form>
-                <div className="card-login-register">
-                    <header className="card-login-register-header">
+                <div className="card-link-to-register">
+                    <header className="card-link-to-register-header">
                         <h2>Don't Have an Account?</h2>
                     </header>
                     <div className="link-to-register">
