@@ -110,7 +110,7 @@ class Register extends Component {
                         <h2>Already Have an Account?</h2>
                     </header>
                     <div className="link-to-register">
-                        <Link to="/login">Login Up</Link>
+                        <Link to="/login">Login In</Link>
                     </div>
                 </div>
             </div>
