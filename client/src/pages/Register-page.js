@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import 'bootstrap/dist/css/bootstrap.css';
-import './Register-page.css';
+import { Link } from "react-router-dom";
+
+import './Login-Register-page.css';
+
 import AuthService from '../services/auth-services';
 import RegisterService from '../services/register-services';
 
@@ -57,11 +59,16 @@ class Register extends Component {
     
     render() {
         return (
-            <div className= "card card-container">
+            <div className= "col-md-8 mx-auto card card-container card-container-login text-center">
                 <form onSubmit={this.handleRegister}>
                     <div className="register card-form">
+                        <div className="card-title">
+                            <header className="card-title-header">
+                                <h1>Sign Up</h1>
+                            </header>
+                        </div>
                         <div className="form-group">
-                            <label htmlFor="username">Username</label>
+                            <label className="form-group-label">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -72,7 +79,7 @@ class Register extends Component {
                             <span style={{color: "red"}}>{this.state.errors['username']}</span>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label className="form-group-label">Email</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -83,7 +90,7 @@ class Register extends Component {
                             <span style={{color: "red"}}>{this.state.errors['email']}</span>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
+                            <label className="form-group-label">Password</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -93,11 +100,19 @@ class Register extends Component {
                             />
                             <span style={{color: "red"}}>{this.state.errors['password']}</span>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group form-group-btn">
                             <input className="btn btn-primary btn-block" type="submit" value="Sign Up"/>
                         </div>
                     </div>
                 </form>
+                <div className="card-link-to-login">
+                    <header className="card-link-to-login-header">
+                        <h2>Already Have an Account?</h2>
+                    </header>
+                    <div className="link-to-register">
+                        <Link to="/login">Login Up</Link>
+                    </div>
+                </div>
             </div>
         );
     }

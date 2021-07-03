@@ -50,30 +50,31 @@ class App extends Component {
     };
 
     render() {
-        if(!this.state.loadPage) {
+        const { currentUser, isLoggedIn, loadPage } = this.state;
+        if(!loadPage) {
             // change later
             return <div>Loading . . .</div>
         } else {
             return (
-                <Router>
-                {this.state.isLoggedIn === false ?
+                <div>
+                {isLoggedIn === false ?
                     <React.Fragment>
-                    <Switch>
-                        <Route exact path="/" render={props =>(
-                        <Landing {...props}/>
-                        )} />
-                        <Route exact path="/register" component={Register}></Route>
-                        <Route exact path="/login" component={Login}></Route>
-                    </Switch>
+                        <Switch>
+                            <Route exact path="/" render={props =>(
+                            <Login {...props}/>
+                            )} />
+                            <Route exact path="/register" component={Register}></Route>
+                            <Route exact path="/login" component={Login}></Route>
+                        </Switch>
                     </React.Fragment>
                 :
                     <React.Fragment>
-                    <div className="App">
-                        <Login></Login>
-                    </div>
+                        <div className="App">
+                            <Login></Login>
+                        </div>
                     </React.Fragment>
                 }
-                </Router>
+                </div>
                 
             );
         }

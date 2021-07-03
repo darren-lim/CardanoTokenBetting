@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import './Login-page.css';
+import './Login-Register-page.css';
 
 import AuthService from '../services/auth-services';
 import LoginService from '../services/login-services';
@@ -53,7 +53,7 @@ class Login extends Component {
     
     render() {
         return (
-            <div className= "card card-container card-container-login text-center">
+            <div className= "col-md-8 mx-auto card card-container card-container-login text-center">
                 <form onSubmit={this.handleLogin}>
                     <div className="login card-form">
                         <div className="card-title">
