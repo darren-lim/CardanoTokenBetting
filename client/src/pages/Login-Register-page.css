@@ -1,5 +1,5 @@
-.card-container-login {
-    background-color: #f7f7f7;
+.card-container {
+    background-color: #ffffff;
     padding: 20px 25px 30px;
     width: 450px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -26,9 +26,26 @@
 .btn {
     width: 140px;
     border-radius: 20px;
-    font-weight: 400;
+    font-weight: 350;
     font-size: 1.3rem;
     text-align: center;
+    color: white;
+    background-color: #673F9A;
+    outline-color: #673F9A;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #4e2681;
+}
+
+.btn:active {
+    color: white;
+    background-color: #4e2681;
+}
+
+.btn:focus {
+    box-shadow: none;
 }
 
 .card-link-to-register-header h2 {

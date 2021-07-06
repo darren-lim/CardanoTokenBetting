@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Landing from '../components/Home/Landing/Landing';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import NavigationBar from '../components/NavigationBar/NavigationBar';
 import AuthService from '../services/auth-services';
 import Login from '../pages/Login-page';
 import Register from '../pages/Register-page';
@@ -57,23 +57,30 @@ class App extends Component {
         } else {
             return (
                 <div>
-                {isLoggedIn === false ?
-                    <React.Fragment>
-                        <Switch>
-                            <Route exact path="/" render={props =>(
-                            <Login {...props}/>
-                            )} />
-                            <Route exact path="/register" component={Register}></Route>
-                            <Route exact path="/login" component={Login}></Route>
-                        </Switch>
-                    </React.Fragment>
-                :
-                    <React.Fragment>
-                        <div className="App">
-                            <Login></Login>
+                    <div className="body">
+                        <div className="navigationBar">
+                            <NavigationBar currentUser={currentUser}/>
                         </div>
-                    </React.Fragment>
-                }
+                        <div className="content">
+                            {isLoggedIn === false ?
+                                <React.Fragment>
+                                    <Switch>
+                                        <Route exact path="/" render={props =>(
+                                        <Login {...props}/>
+                                        )} />
+                                        <Route exact path="/register" component={Register}></Route>
+                                        <Route exact path="/login" component={Login}></Route>
+                                    </Switch>
+                                </React.Fragment>
+                            :
+                                <React.Fragment>
+                                    <div className="App">
+                                        <Login></Login>
+                                    </div>
+                                </React.Fragment>
+                            }
+                        </div>
+                    </div>
                 </div>
                 
             );

@@ -58,8 +58,9 @@ class Register extends Component {
     }
     
     render() {
+        const { username, email, password, errors } = this.state;
         return (
-            <div className= "col-md-8 mx-auto card card-container card-container-login text-center">
+            <div className= "col-md-8 mx-auto my-5 card card-container card-container-register text-center">
                 <form onSubmit={this.handleRegister}>
                     <div className="register card-form">
                         <div className="card-title">
@@ -73,10 +74,10 @@ class Register extends Component {
                                 type="text"
                                 className="form-control"
                                 name="username"
-                                value={this.state.username}
+                                value={username}
                                 onChange={this.onChangeUsername}
                             />
-                            <span style={{color: "red"}}>{this.state.errors['username']}</span>
+                            <span style={{color: "red"}}>{errors['username']}</span>
                         </div>
                         <div className="form-group">
                             <label className="form-group-label">Email</label>
@@ -84,10 +85,10 @@ class Register extends Component {
                                 type="text"
                                 className="form-control"
                                 name="email"
-                                value={this.state.email}
+                                value={email}
                                 onChange={this.onChangeEmail} 
                             />
-                            <span style={{color: "red"}}>{this.state.errors['email']}</span>
+                            <span style={{color: "red"}}>{errors['email']}</span>
                         </div>
                         <div className="form-group">
                             <label className="form-group-label">Password</label>
@@ -95,13 +96,13 @@ class Register extends Component {
                                 type="password"
                                 className="form-control"
                                 name="password"
-                                value={this.state.password}
+                                value={password}
                                 onChange={this.onChangePassword}
                             />
-                            <span style={{color: "red"}}>{this.state.errors['password']}</span>
+                            <span style={{color: "red"}}>{errors['password']}</span>
                         </div>
                         <div className="form-group form-group-btn">
-                            <input className="btn btn-primary btn-block" type="submit" value="Sign Up"/>
+                            <input className="btn" type="submit" value="Sign Up"/>
                         </div>
                     </div>
                 </form>

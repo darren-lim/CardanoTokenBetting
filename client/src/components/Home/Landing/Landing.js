@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import NavbarNLI from "../../NavbarNotLoggedIn/NavbarNLI";
+import NavigationBar from "../../NavigationBar/NavigationBar";
 import NavbarLI from "../../NavbarLoggedIn/NavbarLI";
 import Login from '../../../pages/Login-page';
 import "./Landing.css";
@@ -15,7 +15,7 @@ class Landing extends Component {
     render() { 
         return (
             <div className="Landing">
-                <NavbarNLI/>
+                <NavigationBar/>
                 <div className="login-component">
                     <Login/>
                 </div>

@@ -52,8 +52,9 @@ class Login extends Component {
     }
     
     render() {
+        const { username, password, errors } = this.state;
         return (
-            <div className= "col-md-8 mx-auto card card-container card-container-login text-center">
+            <div className= "col-md-8 mx-auto my-5 card card-container card-container-login text-center">
                 <form onSubmit={this.handleLogin}>
                     <div className="login card-form">
                         <div className="card-title">
@@ -67,10 +68,10 @@ class Login extends Component {
                                 type="text"
                                 className="form-control"
                                 name="username"
-                                value={this.state.username}
+                                value={username}
                                 onChange={this.onChangeUsername}
                             />
-                            <span style={{color: "red"}}>{this.state.errors['username']}</span>
+                            <span style={{color: "red"}}>{errors['username']}</span>
                         </div>
                         <div className="form-group">
                             <label className="form-group-label">Password</label>
@@ -78,13 +79,13 @@ class Login extends Component {
                                 type="password"
                                 className="form-control"
                                 name="password"
-                                value={this.state.password}
+                                value={password}
                                 onChange={this.onChangePassword}
                             />
-                            <span style={{color: "red"}}>{this.state.errors['password']}</span>
+                            <span style={{color: "red"}}>{errors['password']}</span>
                         </div>
                         <div className="form-group form-group-btn">
-                            <input className="btn btn-primary" type="submit" value="Log In"/>
+                            <input className="btn active" type="submit" value="Log In"/>
                         </div>
                     </div>
                 </form>

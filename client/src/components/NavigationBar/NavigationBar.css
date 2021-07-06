@@ -1,13 +1,8 @@
-.NavbarNLI {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5;
-    background: #673F9A;
-    transition: 0.2s;
+.navbar {
+    background-color: #673F9A;
 }
 
-.nav-brand {
+/* .nav-brand {
     color: white !important;
     font-family: Arial;
     font-size: 28px;
@@ -49,4 +44,4 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     color: black;
     background-color: #FFB92F;
-} 
+}  */
