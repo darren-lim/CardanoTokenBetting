@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {Navbar, Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from '../../assets/burgerLogo.png';
 import "./NavigationBar.css";
@@ -13,20 +12,8 @@ class NavigationBar extends Component {
          }
     }
 
-    showLogin = () => {
-        this.setState((prev) => {
-            return {
-                isLoginPage: !prev.isLoginPage
-            }
-        })
-    }
-
-    showRegister = () => {
-        this.setState((prev) => {
-            return {
-                isRegisterPage: !prev.isRegisterPage
-            }
-        })
+    logOut = () => {
+        
     }
 
     render() { 
