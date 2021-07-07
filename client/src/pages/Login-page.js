@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import './Login-Register-page.css';
 
@@ -10,7 +10,6 @@ import LoginService from '../services/login-services';
 class Login extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             username: "",
             password: "",
@@ -33,7 +32,6 @@ class Login extends Component {
     async handleLogin(e) {
         e.preventDefault();
 
-        // result = { {} errors, bool formIsValid }
         const result = LoginService.handleValidation(
             this.state.username, 
             this.state.password,
@@ -47,7 +45,10 @@ class Login extends Component {
             )
             if (!response.id) {
                 this.setState({errors: response});
-            }            
+            } else {
+                this.props.login();
+            }
+               
         }
     }
     
@@ -102,4 +103,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

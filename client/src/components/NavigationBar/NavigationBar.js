@@ -1,23 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-import logo from '../../assets/burgerLogo.png';
 import "./NavigationBar.css";
+import logo from '../../assets/burgerLogo.png';
+import AuthService from '../../services/auth-services'
 
 class NavigationBar extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            currentUser: props.currentUser,
-         }
+        this.state = { }
     }
 
-    logOut = () => {
-        
+    componentDidMount() {
+        if (this.props.isLoggedIn) {
+            const user = AuthService.getCurrentUser();
+            console.log("Inside here: logged")
+            this.setState({
+                currentUser: user,
+            })
+        }
     }
 
     render() { 
-        const { currentUser} = this.state;
         return ( 
            <div>
                 <nav className="navbar navbar-expand navbar-dark py-0">
@@ -25,10 +29,10 @@ class NavigationBar extends Component {
                         <img src={logo} height="50" alt="logo"></img>
                         <p className="d-inline-flex pl-3">Burger Betting</p>
                     </Link>
-                    {currentUser ? 
+                    {this.props.isLoggedIn ? 
                         <div className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link to={"/login"} className="nav-link link-light" onClick={this.logOut}>
+                                <Link to={"/login"} className="nav-link link-light" onClick={this.props.logout}>
                                     Log Out
                                 </Link>
                             </li>

@@ -38,6 +38,16 @@ class App extends Component {
         }
     }
 
+    login = () => {
+        console.log("in here")
+        this.setState({ isLoggedIn: true });
+    }
+
+    logout = () => {
+        this.setState({ isLoggedIn: false });
+        AuthService.logout();
+    }
+
     // fetching the GET route from the Express server which matches the GET route from server.js
     callBackendAPI = async () => {
         const response = await fetch('/express_backend');
@@ -50,36 +60,41 @@ class App extends Component {
     };
 
     render() {
-        const { currentUser, isLoggedIn, loadPage } = this.state;
+        const { isLoggedIn, loadPage } = this.state;
         if(!loadPage) {
             // change later
             return <div>Loading . . .</div>
         } else {
             return (
                 <div>
-                    <div className="body">
-                        <div className="navigationBar">
-                            <NavigationBar currentUser={currentUser}/>
-                        </div>
-                        <div className="content">
-                            {isLoggedIn === false ?
-                                <React.Fragment>
-                                    <Switch>
-                                        <Route exact path="/" render={props =>(
-                                        <Login {...props}/>
-                                        )} />
-                                        <Route exact path="/register" component={Register}></Route>
-                                        <Route exact path="/login" component={Login}></Route>
-                                    </Switch>
-                                </React.Fragment>
-                            :
-                                <React.Fragment>
-                                    <div className="App">
-                                        <Login></Login>
-                                    </div>
-                                </React.Fragment>
-                            }
-                        </div>
+                    <div className="navigationBar">
+                        <NavigationBar isLoggedIn={isLoggedIn} logout={this.logout} />
+                    </div>
+                    <div className="content">
+                        {isLoggedIn === false ?
+                            <React.Fragment>
+                                <Switch>
+                                    <Route 
+                                        exact path="/" 
+                                        render={(props) => <Landing {...props}/>} 
+                                    />
+                                    <Route 
+                                        exact path="/register" 
+                                        render={() => <Register/>}
+                                    />
+                                    <Route 
+                                        exact path="/login" 
+                                        render={(props) => <Login {...props} login={this.login} />}
+                                    />
+                                </Switch>
+                            </React.Fragment>
+                        :
+                            <React.Fragment>
+                                <div className="App">
+                                    <Login></Login>
+                                </div>
+                            </React.Fragment>
+                        }
                     </div>
                 </div>
                 
