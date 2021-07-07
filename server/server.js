@@ -15,10 +15,10 @@ connection.once('open', () => {
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:5000"
+  origin: ["http://localhost:5000", "http://localhost:3000"]
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(require('./routes'));
 
