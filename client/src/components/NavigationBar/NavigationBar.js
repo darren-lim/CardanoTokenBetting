@@ -20,7 +20,7 @@ class NavigationBar extends Component {
         const { currentUser} = this.state;
         return ( 
            <div>
-                <nav className="navbar navbar-expand navbar-dark">
+                <nav className="navbar navbar-expand navbar-dark py-0">
                     <Link to={"/"} className="navbar-brand">
                         <img src={logo} height="50" alt="logo"></img>
                         <p className="d-inline-flex pl-3">Burger Betting</p>

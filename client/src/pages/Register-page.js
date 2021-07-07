@@ -68,8 +68,8 @@ class Register extends Component {
                                 <h1>Sign Up</h1>
                             </header>
                         </div>
-                        <div className="form-group">
-                            <label className="form-group-label">Username</label>
+                        <div className="form-group username-field">
+                            <label className="form-group-label required-field">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -79,8 +79,8 @@ class Register extends Component {
                             />
                             <span style={{color: "red"}}>{errors['username']}</span>
                         </div>
-                        <div className="form-group">
-                            <label className="form-group-label">Email</label>
+                        <div className="form-group email-field">
+                            <label className="form-group-label required-field">Email</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -90,8 +90,8 @@ class Register extends Component {
                             />
                             <span style={{color: "red"}}>{errors['email']}</span>
                         </div>
-                        <div className="form-group">
-                            <label className="form-group-label">Password</label>
+                        <div className="form-group password-field">
+                            <label className="form-group-label required-field">Password</label>
                             <input
                                 type="password"
                                 className="form-control"
