@@ -4,10 +4,11 @@ import Landing from '../components/Home/Landing/Landing';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import NavigationBar from '../components/NavigationBar/NavigationBar';
+import NavigationBar from '../components/NavigationBar/NavigationBar-component';
 import AuthService from '../services/auth-services';
 import Login from '../pages/Login-page';
 import Register from '../pages/Register-page';
+import Dashboard from './Dashboard-page';
 
 
 // Home Page
@@ -39,7 +40,6 @@ class App extends Component {
     }
 
     login = () => {
-        console.log("in here")
         this.setState({ isLoggedIn: true });
     }
 
@@ -90,9 +90,12 @@ class App extends Component {
                             </React.Fragment>
                         :
                             <React.Fragment>
-                                <div className="App">
-                                    <Login></Login>
-                                </div>
+                                <Switch>
+                                    <Route
+                                        exact path="/dashboard"
+                                        render={() => <Dashboard/>}
+                                    />
+                                </Switch>
                             </React.Fragment>
                         }
                     </div>

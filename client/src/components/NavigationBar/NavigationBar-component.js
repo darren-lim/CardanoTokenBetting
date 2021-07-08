@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-import "./NavigationBar.css";
+import "./NavigationBar-component.css";
 import logo from '../../assets/burgerLogo.png';
 import AuthService from '../../services/auth-services'
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import './Login-Register-page.css';
 
@@ -103,4 +103,4 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login);
+export default Login;
