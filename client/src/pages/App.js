@@ -34,6 +34,7 @@ class App extends Component {
         const user = AuthService.getCurrentUser();
         if (user) {
             this.setState({
+                isLoggedIn: true,
                 currentUser: user,
             })
         }
