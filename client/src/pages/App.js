@@ -71,7 +71,7 @@ class App extends Component {
                     <div className="navigationBar">
                         <NavigationBar isLoggedIn={isLoggedIn} logout={this.logout} />
                     </div>
-                    <div className="content">
+                    <div className="container">
                         {isLoggedIn === false ?
                             <React.Fragment>
                                 <Switch>
