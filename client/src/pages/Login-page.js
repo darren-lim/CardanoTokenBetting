@@ -47,6 +47,7 @@ class Login extends Component {
                 this.setState({errors: response});
             } else {
                 this.props.login();
+                this.props.history.push("/dashboard");
             }
                
         }

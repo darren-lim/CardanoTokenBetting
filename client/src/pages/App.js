@@ -72,33 +72,31 @@ class App extends Component {
                         <NavigationBar isLoggedIn={isLoggedIn} logout={this.logout} />
                     </div>
                     <div className="container">
+                        <Switch>
                         {isLoggedIn === false ?
                             <React.Fragment>
-                                <Switch>
-                                    <Route 
-                                        exact path="/" 
-                                        render={(props) => <Landing {...props}/>} 
-                                    />
-                                    <Route 
-                                        exact path="/register" 
-                                        render={() => <Register/>}
-                                    />
-                                    <Route 
-                                        exact path="/login" 
-                                        render={(props) => <Login {...props} login={this.login} />}
-                                    />
-                                </Switch>
+                                <Route 
+                                    exact path="/" 
+                                    render={(props) => <Landing {...props}/>} 
+                                />
+                                <Route 
+                                    exact path="/register" 
+                                    render={() => <Register/>}
+                                />
+                                <Route 
+                                    exact path="/login" 
+                                    render={(props) => <Login {...props} login={this.login} />}
+                                />
                             </React.Fragment>
                         :
                             <React.Fragment>
-                                <Switch>
-                                    <Route
-                                        exact path="/dashboard"
-                                        render={() => <Dashboard/>}
-                                    />
-                                </Switch>
+                                <Route
+                                    exact path="/dashboard"
+                                    render={() => <Dashboard/>}
+                                />
                             </React.Fragment>
                         }
+                        </Switch>
                     </div>
                 </div>
                 
