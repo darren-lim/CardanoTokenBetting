@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom";
-import Landing from '../components/Home/Landing/Landing';
+import Landing from './Home/Landing/Landing';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import NavigationBar from '../components/NavigationBar/NavigationBar-component';
 import AuthService from '../services/auth-services';
-import Login from '../pages/Login-page';
-import Register from '../pages/Register-page';
-import Dashboard from './Dashboard-page';
-import Mines from './Mines-page';
+import Login from './Login Register Page/Login-page';
+import Register from './Login Register Page/Register-page';
+import Dashboard from './Home/Dashboard Page/Dashboard-page';
+import Mines from './Mines Page/Mines-page';
 
 
 // Home Page
