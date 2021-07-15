@@ -91,6 +91,10 @@ class App extends Component {
                             </React.Fragment>
                         :
                             <React.Fragment>
+                                <Route 
+                                    exact path="/" 
+                                    render={(props) => <Dashboard/>} 
+                                />
                                 <Route
                                     exact path="/dashboard"
                                     render={() => <Dashboard/>}
