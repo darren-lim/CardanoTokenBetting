@@ -48,8 +48,7 @@ class Login extends Component {
             } else {
                 this.props.login();
                 this.props.history.push("/dashboard");
-            }
-               
+            }      
         }
     }
     

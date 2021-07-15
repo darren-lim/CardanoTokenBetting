@@ -9,6 +9,7 @@ import AuthService from '../services/auth-services';
 import Login from '../pages/Login-page';
 import Register from '../pages/Register-page';
 import Dashboard from './Dashboard-page';
+import Mines from './Mines-page';
 
 
 // Home Page
@@ -93,6 +94,10 @@ class App extends Component {
                                 <Route
                                     exact path="/dashboard"
                                     render={() => <Dashboard/>}
+                                />
+                                <Route
+                                    exact path="/games/mines"
+                                    render={() => <Mines/>}
                                 />
                             </React.Fragment>
                         }
