@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import './Mines-page.css';
 
-
+import Board from '../../components/Board/Board-component'
 
 class Mines extends Component {
     constructor(props) {
@@ -23,12 +23,10 @@ class Mines extends Component {
     render() { 
         const { height, width, mines } = this.state;
         return (
-            <div>
+            <div className="game-container">
                 <p className="text-center font-weight-bold">MINES PAGE</p>
-                <div className="game-container p-3 mb-2">
-                    <div className="game-board">
-                        {/* <Board height={height} width={width} mines={mines}/> */}
-                    </div>
+                <div className="game-board p-3 mb-2">
+                    <Board height={height} width={width} mines={mines}/>
                 </div>
             </div>
         )
