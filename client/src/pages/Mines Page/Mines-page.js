@@ -25,7 +25,7 @@ class Mines extends Component {
         return (
             <div className="game-container">
                 <p className="text-center font-weight-bold">MINES PAGE</p>
-                <div className="game-board p-3 mb-2">
+                <div className="game-board p-4 m-1">
                     <Board height={height} width={width} mines={mines}/>
                 </div>
             </div>
