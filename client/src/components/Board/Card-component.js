@@ -1,19 +1,19 @@
 import React, {  } from "react";
 
-import burger from '../../assets/burgerLogo.png';
+import burger from '../../assets/burger-card-logo.png';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './Card-component.css'
 
 function Card({ isFaceDown }) {
     return (
-        <div className="card position-relative m-1">
+        <div className="play-card position-relative m-1 p-3">
             { isFaceDown ?
-                <div className="card-face-down text-center">
-                    <img src={burger} height="50" alt="burger" />
+                <div className="play-card-face-down text-center">
+                    <img src={burger} height="60" alt="burger" />
                 </div>
             :
-                <div className="card-face-up text-center">
+                <div className="play-card-face-up text-center">
                     <img src={burger} alt="burger" />
                 </div>
             }

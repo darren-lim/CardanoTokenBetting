@@ -31,9 +31,14 @@ function Board(props) {
     }
 
     return ( 
-        <div className="cards-container">
-            { renderBoard() }
-        </div> 
+        <div className="row">
+            <div className="bet-container w-30">
+                <p>bet info</p>
+            </div>
+            <div className="play-card-container float-right w-70">
+                { renderBoard() }
+            </div> 
+        </div>
     );
     
 }
