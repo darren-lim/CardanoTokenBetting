@@ -10,11 +10,15 @@ function Card({ isFaceDown }) {
         <div className="play-card position-relative m-1 p-3">
             { isFaceDown ?
                 <div className="play-card-face-down text-center">
-                    <img src={burger} height="60" alt="burger" />
+                    <div className="card-image-containter">
+                        <img src={burger} height="60" alt="burger" />
+                    </div>
                 </div>
             :
                 <div className="play-card-face-up text-center">
-                    <img src={burger} alt="burger" />
+                    <div className="card-image-containter">
+                        <img src={burger} alt="burger" />
+                    </div>
                 </div>
             }
         </div>
