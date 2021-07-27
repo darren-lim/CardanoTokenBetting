@@ -1,0 +1,16 @@
+.play-card {
+    background-color: #372C4E;
+}
+
+.card-image-containter {
+    max-width: 60px;
+}
+
+.play-card img {
+    -webkit-backface-visibility: hidden;
+    -ms-transform: translateZ(0);
+    -webkit-transform: translateZ(0); 
+
+    max-width:100%;
+    height: auto;
+}

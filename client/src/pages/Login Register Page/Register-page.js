@@ -1,70 +1,74 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import './Login-Register-page.css';
 
-import AuthService from '../services/auth-services';
-import LoginService from '../services/login-services';
+import AuthService from '../../services/auth-services';
+import RegisterService from '../../services/register-services';
 
 
-class Login extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             username: "",
+            email: "",
             password: "",
             errors: {},
         }
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
+        this.handleRegister = this.handleRegister.bind(this);
     }
 
     onChangeUsername(e) {
         this.setState({username: e.target.value});
     }
     
+    onChangeEmail(e) {
+        this.setState({email: e.target.value});
+    }
+    
     onChangePassword(e) {
         this.setState({password: e.target.value});
     }
     
-    async handleLogin(e) {
+    async handleRegister(e) {
         e.preventDefault();
 
-        const result = LoginService.handleValidation(
+        const result = RegisterService.handleValidation(
             this.state.username, 
+            this.state.email,
             this.state.password,
         );
         this.setState({errors: result.errors});
 
         if (result.formIsValid) {
-            const response = await AuthService.login(
+            const response = await AuthService.register(
                 this.state.username,
+                this.state.email,
                 this.state.password,
             )
-            if (!response.id) {
-                this.setState({errors: response});
-            } else {
-                this.props.login();
-            }
-               
+            this.setState({errors: response.data});
         }
     }
     
     render() {
-        const { username, password, errors } = this.state;
+        const { username, email, password, errors } = this.state;
         return (
-            <div className= "col-md-8 mx-auto my-5 card card-container card-container-login text-center">
-                <form onSubmit={this.handleLogin}>
-                    <div className="login card-form">
+            <div className= "col-md-8 mx-auto my-5 card card-container card-container-register text-center">
+                <form onSubmit={this.handleRegister}>
+                    <div className="register card-form">
                         <div className="card-title">
                             <header className="card-title-header">
-                                <h1>Log In</h1>
+                                <h1>Sign Up</h1>
                             </header>
                         </div>
-                        <div className="form-group">
-                            <label className="form-group-label">Username</label>
+                        <div className="form-group username-field">
+                            <label className="form-group-label required-field">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -74,8 +78,19 @@ class Login extends Component {
                             />
                             <span style={{color: "red"}}>{errors['username']}</span>
                         </div>
-                        <div className="form-group">
-                            <label className="form-group-label">Password</label>
+                        <div className="form-group email-field">
+                            <label className="form-group-label required-field">Email</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="email"
+                                value={email}
+                                onChange={this.onChangeEmail} 
+                            />
+                            <span style={{color: "red"}}>{errors['email']}</span>
+                        </div>
+                        <div className="form-group password-field">
+                            <label className="form-group-label required-field">Password</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -86,16 +101,16 @@ class Login extends Component {
                             <span style={{color: "red"}}>{errors['password']}</span>
                         </div>
                         <div className="form-group form-group-btn">
-                            <input className="btn active" type="submit" value="Log In"/>
+                            <input className="btn" type="submit" value="Sign Up"/>
                         </div>
                     </div>
                 </form>
-                <div className="card-link-to-register">
-                    <header className="card-link-to-register-header">
-                        <h2>Don't Have an Account?</h2>
+                <div className="card-link-to-login">
+                    <header className="card-link-to-login-header">
+                        <h2>Already Have an Account?</h2>
                     </header>
                     <div className="link-to-register">
-                        <Link to="/register">Sign Up</Link>
+                        <Link to="/login">Login In</Link>
                     </div>
                 </div>
             </div>
@@ -103,4 +118,4 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login);
+export default Register;
