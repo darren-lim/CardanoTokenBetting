@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Card from './Card-component';
+import Bet from './Bet-component';
 
 import 'bootstrap/dist/css/bootstrap.css'; 
 import './Board-component.css';
@@ -34,6 +35,7 @@ function Board(props) {
         <div className="row">
             <div className="bet-container">
                 <p>bet info</p>
+                <Bet/>
             </div>
             <div className="play-card-container float-right">
                 { renderBoard() }
