@@ -3,6 +3,7 @@ import Card from './Card-component';
 import logo from '../../assets/burgerLogo.png';
 
 import 'bootstrap/dist/css/bootstrap.css'; 
+import './Bet-component.css';
 
 function Bet(props) {
 
@@ -25,22 +26,36 @@ function Bet(props) {
     }
 
     return (
-        <div>
+        <div className="bet-container">
             <div className="balance-container">
-                <form onSubmit={handleDeposit}>
-                    <div className="balance-box-container">
-                        <label className="balance-label">Balance</label>
-                        <div className="balance-display">
-                            <img src={logo} height="20" alt="balance-coin" ></img>
-                            <p className="balance-amount">{balance}</p>
-                            <input className="btn active" type="submit" value="Deposit"/>
-                        </div>
+                <label className="balance-label">Balance</label>
+                <div className="balance-display row">
+                    <div className="balance-coin-image">
+                        <img src={logo} height="20" alt="balance-coin" ></img>
                     </div>
+                    <div className="balance-amount-containter">
+                        <p className="balance-amount">{balance}</p>
+                    </div>
+                </div>
+                <form onSubmit={handleDeposit}>
+                    <input className="btn active" type="submit" value="Deposit"/>
                 </form>
             </div>
-            <div className>
-
+            <div className="burnt-amount-container">
+                
+                {/* <input
+                    type="text"
+                    className="form-control"
+                    name="username"
+                    value={username}
+                    onChange={this.onChangeUsername}
+                /> */}
             </div>
+            { isGameStarted ?
+                <EndGame />
+            :
+                <StartGame />
+            }
         </div>
     );
 }
@@ -53,6 +68,13 @@ function EndGame() {
         return null;
     }
     
+    return (
+        <div>
+            <form onSubmit={handleCashOut}>
+
+            </form>
+        </div>
+    );
     // <form onSubmit={handleCashOut}>
     //     <div className="number-of-mines-container">
     //         <label className="number-of-mines-label">Amount of Burnt Patties</label>
@@ -66,6 +88,11 @@ function EndGame() {
 
 function StartGame() {
 
+    return (
+        <div>
+            
+        </div>
+    );
 }
 
 export default Bet;

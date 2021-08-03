@@ -1,0 +1,12 @@
+.bet-container {
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.balance-label {
+    color: white;
+}
+
+.balance-display {
+    background-color: #AB95C8;
+}
