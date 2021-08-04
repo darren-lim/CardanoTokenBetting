@@ -32,8 +32,8 @@ function Board(props) {
     }
 
     return ( 
-        <div className="row">
-            <div className="bet-container">
+        <div className="board row">
+            <div className="bet-component">
                 <Bet/>
             </div>
             <div className="play-card-container float-right">

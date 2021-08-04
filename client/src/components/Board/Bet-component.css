@@ -1,12 +1,50 @@
-.bet-container {
-    margin-left: 1rem;
-    text-align: left;
+.balance-component {
+    margin-bottom: 2rem;
 }
 
-.balance-label {
+.label {
     color: white;
+    font-size: 4;
 }
 
-.balance-display {
+.balance-amount {
+    outline-width: 0;
     background-color: #AB95C8;
+    border: none;
+}
+
+.balance-logo-img {
+    background-color: #AB95C8;
+}
+
+.deposit-btn {
+    background-color: #89D495;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1px;
+    flex: auto;
+}
+
+.bet-amount {
+    background-color: #AB95C8;
+    border: none;
+    text-align: center;
+    outline-width: 0;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.mutiplier-btns {
+    text-align: center;
+}
+
+.bet-btn {
+    color: #FFFFFF;
+    background-color: #372C4E;
+    border: none;
+    border-radius: 25px;
+    padding: 0.2rem;
+    margin: 0.1rem;
+    width: 4.3rem;
 }

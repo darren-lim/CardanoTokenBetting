@@ -13,50 +13,104 @@ function Bet(props) {
     const [betAmount, setBetAmount] = useState(0);
     const [numberOfBurntPatties, setNumberOfBurntPatties] = useState(1);
 
-    function handleDeposit() {
+    function handleDeposit(event) {
         // redirect to deposit page
 
+        event.preventDefault();
+        console.log("deposit");
         return null;
     }
 
-    function handleCashOut() {
+    function handleSubmitBet() {
         // begin game or cash out
-
+        
         return null;
     }
 
     return (
-        <div className="bet-container">
-            <div className="balance-container">
-                <label className="balance-label">Balance</label>
-                <div className="balance-display row">
-                    <div className="balance-coin-image">
-                        <img src={logo} height="20" alt="balance-coin" ></img>
-                    </div>
-                    <div className="balance-amount-containter">
-                        <p className="balance-amount">{balance}</p>
-                    </div>
-                </div>
-                <form onSubmit={handleDeposit}>
-                    <input className="btn active" type="submit" value="Deposit"/>
-                </form>
+        <div>
+            <div className="balance-component">
+                <Balance balance={balance} deposit={handleDeposit} />
             </div>
-            <div className="burnt-amount-container">
-                
-                {/* <input
-                    type="text"
-                    className="form-control"
-                    name="username"
-                    value={username}
-                    onChange={this.onChangeUsername}
-                /> */}
+            <div className="BetAmount-component">
+                <BetAmount submitBet={handleSubmitBet}/>
             </div>
-            { isGameStarted ?
-                <EndGame />
-            :
-                <StartGame />
-            }
         </div>
+
+        //     <div className="burnt-amount-container">
+
+        //     </div>
+        //     { isGameStarted ?
+        //         <EndGame />
+        //     :
+        //         <StartGame />
+        //     }
+        // </div>
+    );
+}
+
+function Balance(props) {
+    return (
+        <form className="balance-container" onSubmit={props.deposit}>
+            <label className="label row">Balance</label>
+            <div className="row">
+                <img src={logo} height="45px" alt="coin logo" className="balance-logo-img" />
+                <input
+                    readOnly={true}
+                    type="text"
+                    placeholder="balance"
+                    value={props.balance}
+                    height="45"
+                    className="balance-amount"
+                />
+                <button type="submit" className="deposit-btn">
+                    Deposit
+                </button>
+            </div>
+        </form>
+    )
+}
+
+function BetAmount(props) {
+    return (
+        <form className="balance-container" onSubmit={props.submitBet()}>
+            <label className="label row">Bet Amount</label>
+            <div className="row">
+                <input
+                    type="text"
+                    placeholder="0"
+                    value={props.balance}
+                    className="bet-amount"
+                />
+            </div>
+            <div>
+                <div className="powers-of-ten-btns">
+                    <button type="submit" className="bet-btn">
+                        10
+                    </button>
+                    <button type="submit" className="bet-btn">
+                        100
+                    </button>
+                    <button type="submit" className="bet-btn">
+                        1000
+                    </button>
+                    <button type="submit" className="bet-btn">
+                        10000
+                    </button>
+                </div>
+                <div className="mutiplier-btns">
+                    <button type="submit" className="bet-btn">
+                        1/2
+                    </button>
+                    <button type="submit" className="bet-btn">
+                        2x
+                    </button>
+                    <button type="submit" className="bet-btn">
+                        Max
+                    </button>
+                </div>
+            </div>
+        </form>
     );
 }
 
