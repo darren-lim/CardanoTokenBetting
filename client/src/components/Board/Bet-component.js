@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Card from './Card-component';
 import logo from '../../assets/burgerLogo.png';
 
@@ -6,24 +6,40 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Bet-component.css';
 
 function Bet(props) {
-
     const [balance, setBalance] = useState(1000);
+    const [betAmount, setBetAmount] = useState(1000);
+    const [burntPattiesAmount, setBurntPattiesAmount] = useState(1000);
+    // const [bet, setBet] = useState(0);
 
-    const [isGameStarted, setIsGameStarted] = useState(false);
-    const [betAmount, setBetAmount] = useState(0);
-    const [numberOfBurntPatties, setNumberOfBurntPatties] = useState(1);
+    // const [isGameStarted, setIsGameStarted] = useState(false);
+    // const [numberOfBurntPatties, setNumberOfBurntPatties] = useState(1);
 
-    function handleDeposit(event) {
+    function getDepositAmount() {
+        // pull deposit amount from services
+        let deposit = balance;
+        return deposit;
+    }
+
+    function handleDeposit() {
         // redirect to deposit page
-
-        event.preventDefault();
         console.log("deposit");
         return null;
     }
 
-    function handleSubmitBet() {
+    function handleSubmitBet(bet) {
         // begin game or cash out
-        
+        setBetAmount(bet);
+        console.log(betAmount);
+        return null;
+    }
+
+    function handleBurntPattiesAmount(amount) {
+        console.log(amount);
+        return null;
+    }
+
+    function handleSubmit() {
+        console.log("start");
         return null;
     }
 
@@ -32,121 +48,120 @@ function Bet(props) {
             <div className="balance-component">
                 <Balance balance={balance} deposit={handleDeposit} />
             </div>
-            <div className="BetAmount-component">
-                <BetAmount submitBet={handleSubmitBet}/>
+            <div className="bet-amount-component">
+                <BetAmount submitBet={handleSubmitBet} deposit={balance}/>
             </div>
+            <div className="burnt-amount-component">
+                <BurntPatties submitBurntPattiesAmount={handleBurntPattiesAmount}/>
+            </div>
+            <button type="button" onClick={() => handleSubmit()} className="submit-btn">
+                Start
+            </button>
         </div>
-
-        //     <div className="burnt-amount-container">
-
-        //     </div>
-        //     { isGameStarted ?
-        //         <EndGame />
-        //     :
-        //         <StartGame />
-        //     }
-        // </div>
     );
 }
 
 function Balance(props) {
     return (
-        <form className="balance-container" onSubmit={props.deposit}>
+        <div className="balance-container">
             <label className="label row">Balance</label>
             <div className="row">
-                <img src={logo} height="45px" alt="coin logo" className="balance-logo-img" />
+                <img src={logo} alt="coin logo" className="balance-logo-img" />
                 <input
                     readOnly={true}
                     type="text"
                     placeholder="balance"
                     value={props.balance}
-                    height="45"
                     className="balance-amount"
                 />
-                <button type="submit" className="deposit-btn">
+                <button type="button" onClick={props.deposit} className="deposit-btn">
                     Deposit
                 </button>
             </div>
-        </form>
+        </div>
     )
 }
 
 function BetAmount(props) {
+
+    function handleBet(betAmount) {
+        props.submitBet(betAmount);
+    }
+
     return (
-        <form className="balance-container" onSubmit={props.submitBet()}>
+        <div className="balance-container">
             <label className="label row">Bet Amount</label>
             <div className="row">
                 <input
                     type="text"
-                    placeholder="0"
+                    placeholder=""
                     value={props.balance}
                     className="bet-amount"
                 />
             </div>
             <div>
                 <div className="powers-of-ten-btns">
-                    <button type="submit" className="bet-btn">
+                    <button type="button" onClick={() => handleBet(10)} className="bet-btn">
                         10
                     </button>
-                    <button type="submit" className="bet-btn">
+                    <button type="button" onClick={() => handleBet(100)} className="bet-btn">
                         100
                     </button>
-                    <button type="submit" className="bet-btn">
+                    <button type="button" onClick={() => handleBet(1000)} className="bet-btn">
                         1000
                     </button>
-                    <button type="submit" className="bet-btn">
+                    <button type="button" onClick={() => handleBet(10000)} className="bet-btn">
                         10000
                     </button>
                 </div>
-                <div className="mutiplier-btns">
-                    <button type="submit" className="bet-btn">
+                <div className="multiplier-btns">
+                    <button type="button" onClick={() => handleBet(props.deposit/2)} className="bet-btn">
                         1/2
                     </button>
-                    <button type="submit" className="bet-btn">
+                    <button type="button" onClick={() => handleBet(props.deposit*2)} className="bet-btn">
                         2x
                     </button>
-                    <button type="submit" className="bet-btn">
+                    <button type="button" onClick={() => handleBet(props.deposit)} className="bet-btn">
                         Max
                     </button>
                 </div>
             </div>
-        </form>
+        </div>
     );
 }
 
-function EndGame() {
-
-    function handleCashOut() {
-        // begin game or cash out
-
-        return null;
+function BurntPatties(props) {
+    function handleBurntAmount(amount) {
+        props.submitBurntPattiesAmount(amount);
     }
-    
-    return (
-        <div>
-            <form onSubmit={handleCashOut}>
-
-            </form>
-        </div>
-    );
-    // <form onSubmit={handleCashOut}>
-    //     <div className="number-of-mines-container">
-    //         <label className="number-of-mines-label">Amount of Burnt Patties</label>
-    //         <div className="number-of-mines-input">
-    //             <p className="balance-amount">{balance}</p>
-    //             <input className="btn active" type="submit" value="Cash Out"/>
-    //         </div>
-    //     </div>
-    // </form>
-}
-
-function StartGame() {
 
     return (
-        <div>
-            
+        <div className="burnt-container">
+            <label className="label row">Amount of Burnt Patties</label>
+            <div className="row">
+                <input
+                    type="text"
+                    placeholder=""
+                    // value={}
+                    className="burnt-amount"
+                />
+            </div>
+            <div className="amount-of-burnt-btns">
+                <button type="button" onClick={() => handleBurntAmount(1)} className="bet-btn">
+                    1
+                </button>
+                <button type="button" onClick={() => handleBurntAmount(3)} className="bet-btn">
+                    3
+                </button>
+                <button type="button" onClick={() => handleBurntAmount(5)} className="bet-btn">
+                    5
+                </button>
+                <button type="button" onClick={() => handleBurntAmount(10)} className="bet-btn">
+                    10
+                </button>
+            </div>
         </div>
-    );
+    )
 }
 
 export default Bet;

@@ -11,9 +11,11 @@
     outline-width: 0;
     background-color: #AB95C8;
     border: none;
+    height: 35px;
 }
 
 .balance-logo-img {
+    height: 35px;
     background-color: #AB95C8;
 }
 
@@ -25,17 +27,21 @@
     flex: auto;
 }
 
+.bet-amount-component {
+    margin-bottom: 2rem;
+}
+
 .bet-amount {
     background-color: #AB95C8;
     border: none;
     text-align: center;
     outline-width: 0;
-    height: 30px;
+    height: 35px;
     width: 100%;
     margin-bottom: 1rem;
 }
 
-.mutiplier-btns {
+.multiplier-btns {
     text-align: center;
 }
 
@@ -47,4 +53,27 @@
     padding: 0.2rem;
     margin: 0.1rem;
     width: 4.3rem;
+}
+
+.burnt-amount-component {
+    margin-bottom: 2rem;
+}
+
+.burnt-amount {
+    background-color: #AB95C8;
+    border: none;
+    text-align: center;
+    outline-width: 0;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background-color: #89D495;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    text-align: center;
 }
