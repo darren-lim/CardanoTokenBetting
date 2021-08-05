@@ -34,12 +34,15 @@ function Bet(props) {
     }
 
     function handleBurntPattiesAmount(amount) {
+        setBurntPattiesAmount(amount)
         console.log(amount);
         return null;
     }
 
     function handleSubmit() {
-        console.log("start");
+        console.log("Deposit: " + balance);
+        console.log("Bet: " + betAmount);
+        console.log("Burnt Patties: " + burntPattiesAmount);
         return null;
     }
 
@@ -52,7 +55,7 @@ function Bet(props) {
                 <BetAmount submitBet={handleSubmitBet} deposit={balance}/>
             </div>
             <div className="burnt-amount-component">
-                <BurntPatties submitBurntPattiesAmount={handleBurntPattiesAmount}/>
+                <BurntPatties onChangeBurntValue={handleBurntPattiesAmount}/>
             </div>
             <button type="button" onClick={() => handleSubmit()} className="submit-btn">
                 Start
@@ -131,8 +134,11 @@ function BetAmount(props) {
 }
 
 function BurntPatties(props) {
+    const [burntAmount, setBurntAmount] = useState(1);
+
     function handleBurntAmount(amount) {
-        props.submitBurntPattiesAmount(amount);
+        setBurntAmount(amount)
+        // props.submitBurntPattiesAmount(amount);
     }
 
     return (
@@ -142,7 +148,8 @@ function BurntPatties(props) {
                 <input
                     type="text"
                     placeholder=""
-                    // value={}
+                    value={burntAmount}
+                    onChange={props.onChangeBurntValue}
                     className="burnt-amount"
                 />
             </div>
