@@ -7,8 +7,8 @@ import './Bet-component.css';
 
 function Bet(props) {
     const [balance, setBalance] = useState(1000);
-    const [betAmount, setBetAmount] = useState(1000);
-    const [burntPattiesAmount, setBurntPattiesAmount] = useState(1000);
+    const [betAmount, setBetAmount] = useState(100);
+    const [burntPattiesAmount, setBurntPattiesAmount] = useState(1);
     // const [bet, setBet] = useState(0);
 
     // const [isGameStarted, setIsGameStarted] = useState(false);
@@ -52,10 +52,10 @@ function Bet(props) {
                 <Balance balance={balance} deposit={handleDeposit} />
             </div>
             <div className="bet-amount-component">
-                <BetAmount onChangeBetValue={handleBetAmount} deposit={balance}/>
+                <BetAmount onChangeBetValue={handleBetAmount} betAmount={betAmount} deposit={balance}/>
             </div>
             <div className="burnt-amount-component">
-                <BurntPatties onChangeBurntValue={handleBurntPattiesAmount}/>
+                <BurntPatties onChangeBurntValue={handleBurntPattiesAmount} burntPattiesAmount={burntPattiesAmount}/>
             </div>
             <button type="button" onClick={() => handleSubmit()} className="submit-btn">
                 Start
@@ -86,10 +86,7 @@ function Balance(props) {
 }
 
 function BetAmount(props) {
-    const [betAmount, setBetAmount] = useState(100);
-
     function handleBetAmount(amount) {
-        setBetAmount(amount)
         props.onChangeBetValue(amount);
     }
 
@@ -100,7 +97,7 @@ function BetAmount(props) {
                 <input
                     type="text"
                     placeholder=""
-                    value={betAmount}
+                    value={props.betAmount}
                     onChange={ (event) => handleBetAmount(event.target.value) }
                     className="bet-amount"
                 />
@@ -137,10 +134,8 @@ function BetAmount(props) {
 }
 
 function BurntPatties(props) {
-    const [burntAmount, setBurntAmount] = useState(1);
 
     function handleBurntAmount(amount) {
-        setBurntAmount(amount)
         props.onChangeBurntValue(amount);
     }
 
@@ -151,7 +146,7 @@ function BurntPatties(props) {
                 <input
                     type="text"
                     placeholder=""
-                    value={burntAmount}
+                    value={props.burntPattiesAmount}
                     onChange={ (event) => handleBurntAmount(event.target.value) }
                     className="burnt-amount"
                 />
