@@ -26,7 +26,7 @@ function Bet(props) {
         return null;
     }
 
-    function handleSubmitBet(bet) {
+    function handleBetAmount(bet) {
         // begin game or cash out
         setBetAmount(bet);
         console.log(betAmount);
@@ -52,7 +52,7 @@ function Bet(props) {
                 <Balance balance={balance} deposit={handleDeposit} />
             </div>
             <div className="bet-amount-component">
-                <BetAmount submitBet={handleSubmitBet} deposit={balance}/>
+                <BetAmount onChangeBetValue={handleBetAmount} deposit={balance}/>
             </div>
             <div className="burnt-amount-component">
                 <BurntPatties onChangeBurntValue={handleBurntPattiesAmount}/>
@@ -86,9 +86,11 @@ function Balance(props) {
 }
 
 function BetAmount(props) {
+    const [betAmount, setBetAmount] = useState(1);
 
-    function handleBet(betAmount) {
-        props.submitBet(betAmount);
+    function handleBetAmount(amount) {
+        setBetAmount(amount)
+        props.onChangeBetValue(amount);
     }
 
     return (
@@ -98,33 +100,34 @@ function BetAmount(props) {
                 <input
                     type="text"
                     placeholder=""
-                    value={props.balance}
+                    value={betAmount}
+                    onChange={ (event) => handleBetAmount(event.target.value) }
                     className="bet-amount"
                 />
             </div>
             <div>
                 <div className="powers-of-ten-btns">
-                    <button type="button" onClick={() => handleBet(10)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(10)} className="bet-btn">
                         10
                     </button>
-                    <button type="button" onClick={() => handleBet(100)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(100)} className="bet-btn">
                         100
                     </button>
-                    <button type="button" onClick={() => handleBet(1000)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(1000)} className="bet-btn">
                         1000
                     </button>
-                    <button type="button" onClick={() => handleBet(10000)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(10000)} className="bet-btn">
                         10000
                     </button>
                 </div>
                 <div className="multiplier-btns">
-                    <button type="button" onClick={() => handleBet(props.deposit/2)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(props.deposit/2)} className="bet-btn">
                         1/2
                     </button>
-                    <button type="button" onClick={() => handleBet(props.deposit*2)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(props.deposit*2)} className="bet-btn">
                         2x
                     </button>
-                    <button type="button" onClick={() => handleBet(props.deposit)} className="bet-btn">
+                    <button type="button" onClick={() => handleBetAmount(props.deposit)} className="bet-btn">
                         Max
                     </button>
                 </div>
@@ -138,7 +141,7 @@ function BurntPatties(props) {
 
     function handleBurntAmount(amount) {
         setBurntAmount(amount)
-        // props.submitBurntPattiesAmount(amount);
+        props.onChangeBurntValue(amount);
     }
 
     return (
@@ -149,7 +152,7 @@ function BurntPatties(props) {
                     type="text"
                     placeholder=""
                     value={burntAmount}
-                    onChange={props.onChangeBurntValue}
+                    onChange={ (event) => handleBurntAmount(event.target.value) }
                     className="burnt-amount"
                 />
             </div>
