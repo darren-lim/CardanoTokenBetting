@@ -29,7 +29,7 @@ function Bet(props) {
     function handleBetAmount(bet) {
         // begin game or cash out
         setBetAmount(bet);
-        console.log(betAmount);
+        console.log(bet);
         return null;
     }
 
@@ -86,7 +86,7 @@ function Balance(props) {
 }
 
 function BetAmount(props) {
-    const [betAmount, setBetAmount] = useState(1);
+    const [betAmount, setBetAmount] = useState(100);
 
     function handleBetAmount(amount) {
         setBetAmount(amount)
