@@ -67,8 +67,8 @@ function Bet(props) {
 function Balance(props) {
     return (
         <div className="balance-container">
-            <label className="label row">Balance</label>
-            <div className="row">
+            <label className="label">Balance</label>
+            <div className="balance-content">
                 <img src={logo} alt="coin logo" className="balance-logo-img" />
                 <input
                     readOnly={true}
@@ -91,9 +91,9 @@ function BetAmount(props) {
     }
 
     return (
-        <div className="balance-container">
-            <label className="label row">Bet Amount</label>
-            <div className="row">
+        <div className="bet-container">
+            <label className="label">Bet Amount</label>
+            <div className="bet-content">
                 <input
                     type="text"
                     placeholder=""
@@ -141,8 +141,8 @@ function BurntPatties(props) {
 
     return (
         <div className="burnt-container">
-            <label className="label row">Amount of Burnt Patties</label>
-            <div className="row">
+            <label className="label">Amount of Burnt Patties</label>
+            <div className="burnt-content">
                 <input
                     type="text"
                     placeholder=""

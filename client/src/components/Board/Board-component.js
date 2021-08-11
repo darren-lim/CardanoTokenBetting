@@ -32,11 +32,11 @@ function Board(props) {
     }
 
     return ( 
-        <div className="board row">
+        <div className="board">
             <div className="bet-component">
                 <Bet/>
             </div>
-            <div className="play-card-container float-right">
+            <div className="play-card-container">
                 { renderBoard() }
             </div> 
         </div>

@@ -7,6 +7,11 @@
     font-size: 4;
 }
 
+.balance-content {
+    display: grid;
+    grid-template-columns: 35px 3fr 1fr;
+}
+
 .balance-amount {
     outline-width: 0;
     background-color: #AB95C8;

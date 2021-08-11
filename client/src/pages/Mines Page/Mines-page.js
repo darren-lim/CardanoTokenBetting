@@ -24,7 +24,7 @@ class Mines extends Component {
         const { height, width, mines } = this.state;
         return (
             <div className="game-container d-flex justify-content-center">
-                <div className="game-board p-4 m-1 mt-5 w-100">
+                <div className="game-board mt-5">
                     <Board height={height} width={width} mines={mines}/>
                 </div>
             </div>

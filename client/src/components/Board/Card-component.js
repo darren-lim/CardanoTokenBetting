@@ -10,33 +10,28 @@ function Card() {
     const [flipped, setFlipped] = useState(false);
 
     return (
-        <div className="play-card position-relative m-1 p-3" onClick={() => setFlipped(true)}>    
-            { flipped ?
-                <CardFaceUp />
-            :
-                <CardFaceDown />
-            }
+        <div className="play-card" onClick={() => setFlipped(!flipped)}>    
+            <div className={flipped ? "play-card-content flipped" : "play-card-content"}>
+                <div className="card-up">
+                    <CardFaceUp />
+                </div>
+                <div className="card-down">
+                    <CardFaceDown />
+                </div>
+            </div>
         </div>
     )
 }
 
 function CardFaceDown() {
     return (
-        <div className="play-card-face-down text-center">
-            <div className="card-image-container">
-                <img src={Burger} height="60" alt="burger" />
-            </div>
-        </div>
+        <img className="card-image card-face-down" src={Burger} height="60" alt="burger" />
     )
 }
 
 function CardFaceUp() {
     return (
-        <div className="play-card-face-up text-center">
-            <div className="card-image-container">
-                <img src={BurntPatty} height="60" alt="burger" />
-            </div>
-        </div>
+        <img className="card-image card-face-up" src={BurntPatty} height="60" alt="burger" />
     )
 }
  
