@@ -5,7 +5,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import NavigationBar from '../components/NavigationBar/NavigationBar-component';
-import AuthService from '../services/auth-services';
+import AuthService from '../services/account/auth-services';
 import Login from './Login Register Page/Login-page';
 import Register from './Login Register Page/Register-page';
 import Dashboard from './Home/Dashboard Page/Dashboard-page';
