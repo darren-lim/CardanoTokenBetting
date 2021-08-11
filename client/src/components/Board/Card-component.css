@@ -1,32 +1,28 @@
 .play-card {
-    position: relative;  
-    height: 0;
-    padding: 100% 0 0 0;
+    width: calc(20% - 10px);
+    height: calc(10% - 10px);
+    padding-top: 20%;
+    cursor: pointer;
+    position: relative;
+    margin: 3px;
 }
 
 .play-card-content { 
     display: flex;
     position: absolute;
-    max-width: 100px;
-    max-height: 100px;
-    left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     top: 0;
-    bottom: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px -5px rgba(black, .2);
     background-color: #FFB92F;
     transform-style: preserve-3d;
     transition: all 1s ease-in-out;
-    cursor: pointer;
 }
 
 .flipped {
     transform: rotateY(180deg);
 }
-
-.card-up {
-    background-color: #FFB92F;
-}
-
 
 .play-card-content .card-face-down {
     position: absolute;

@@ -2,17 +2,16 @@
     display: flex;
     gap: 40px;
     width: 100%;
-    background-color: rgb(255, 8, 0);
 }
 
 .bet-component {
+    display: flex;
     width: 300px;
 }
 
 .play-card-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-    background-color: aqua;
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    justify-content: flex-end;
 }
