@@ -1,0 +1,17 @@
+.board {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.bet-component {
+    display: flex;
+    width: 300px;
+}
+
+.play-card-container {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}

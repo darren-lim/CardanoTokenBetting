@@ -1,3 +1,11 @@
+html body{
+    background-color: #d5c0f1;
+}
+
+.container {
+    
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +22,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #28242b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +31,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
 
 .App-link {
   color: #61dafb;

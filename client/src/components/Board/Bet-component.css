@@ -1,0 +1,84 @@
+.balance-component {
+    margin-bottom: 2rem;
+}
+
+.label {
+    color: white;
+    font-size: 4;
+}
+
+.balance-content {
+    display: grid;
+    grid-template-columns: 35px 3fr 1fr;
+}
+
+.balance-amount {
+    outline-width: 0;
+    background-color: #AB95C8;
+    border: none;
+    height: 35px;
+}
+
+.balance-logo-img {
+    height: 35px;
+    background-color: #AB95C8;
+}
+
+.deposit-btn {
+    background-color: #89D495;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1px;
+    flex: auto;
+}
+
+.bet-amount-component {
+    margin-bottom: 2rem;
+}
+
+.bet-amount {
+    background-color: #AB95C8;
+    border: none;
+    text-align: center;
+    outline-width: 0;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.multiplier-btns {
+    text-align: center;
+}
+
+.bet-btn {
+    color: #FFFFFF;
+    background-color: #372C4E;
+    border: none;
+    border-radius: 25px;
+    padding: 0.2rem;
+    margin: 0.1rem;
+    width: 4.3rem;
+}
+
+.burnt-amount-component {
+    margin-bottom: 2rem;
+}
+
+.burnt-amount {
+    background-color: #AB95C8;
+    border: none;
+    text-align: center;
+    outline-width: 0;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background-color: #89D495;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    text-align: center;
+}
