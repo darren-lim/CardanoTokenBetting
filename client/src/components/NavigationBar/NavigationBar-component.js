@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./NavigationBar-component.css";
 import logo from '../../assets/burgerLogo.png';
-import AuthService from '../../services/auth-services'
+import AuthService from '../../services/account/auth-services'
 
 class NavigationBar extends Component {
     constructor(props) {
