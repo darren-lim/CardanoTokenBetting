@@ -10,7 +10,7 @@ function Card() {
     const [flipped, setFlipped] = useState(false);
 
     return (
-        <div className="play-card" onClick={() => setFlipped(!flipped)}>    
+        <div className="play-card" onClick={() => setFlipped(true)}>    
             <div className={flipped ? "play-card-content flipped" : "play-card-content"}>
                 <div className="card-up">
                     <CardFaceUp />

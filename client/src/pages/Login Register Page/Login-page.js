@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import './Login-Register-page.css';
 
-import AuthService from '../../services/auth-services';
-import LoginService from '../../services/login-services';
+import AuthService from '../../services/account/auth-services';
+import LoginService from '../../services/account/login-services';
 
 
 class Login extends Component {
