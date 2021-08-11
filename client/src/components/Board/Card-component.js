@@ -25,13 +25,13 @@ function Card() {
 
 function CardFaceDown() {
     return (
-        <img className="card-image card-face-down" src={Burger} height="60" alt="burger" />
+        <img className="card-image card-face-down" src={Burger} height="40" alt="burger" />
     )
 }
 
 function CardFaceUp() {
     return (
-        <img className="card-image card-face-up" src={BurntPatty} height="60" alt="burger" />
+        <img className="card-image card-face-up" src={BurntPatty} height="40" alt="burger" />
     )
 }
  

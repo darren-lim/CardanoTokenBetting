@@ -3,9 +3,11 @@
 }
 
 .game-board {
-    display: inline-block;
+    display: flex;
     background-color: #736288;
-    width: 100vmin;
+    width: 80%;
+    height: 80vh;
+    min-width: 840px;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;

@@ -1,14 +1,18 @@
 .play-card {
     position: relative;  
-    margin: 5px;
-    height: calc(13vmin - 40px);
-    width: calc(13vmin - 40px);
+    height: 0;
+    padding: 100% 0 0 0;
 }
 
 .play-card-content { 
-    height: 100%;
-    width: 100%;
+    display: flex;
     position: absolute;
+    max-width: 100px;
+    max-height: 100px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-color: #FFB92F;
     transform-style: preserve-3d;
     transition: all 1s ease-in-out;

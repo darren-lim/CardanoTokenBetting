@@ -1,16 +1,18 @@
 .board {
-    display: grid;
-    grid-template-columns: 25% 1fr;
-    grid-gap: 50px;
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    background-color: rgb(255, 8, 0);
 }
 
 .bet-component {
-    display: inline-block;
+    width: 300px;
 }
 
 .play-card-container {
-    display: grid;
     width: 100%;
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    background-color: aqua;
 }
