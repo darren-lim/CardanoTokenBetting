@@ -8,6 +8,8 @@
     width: 80%;
     height: 80vh;
     min-width: 840px;
+    min-height: 550px;
+    max-width: 110vh;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
