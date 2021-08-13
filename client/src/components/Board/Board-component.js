@@ -16,10 +16,10 @@ function Board(props) {
         ]
     );
     
-    function getBoard() {
-        // call function from services 
-        // which does GET request to server for which cards are mines
-    }
+    // function getBoard() {
+    //     // call function from services 
+    //     // which does GET request to server for which cards are mines
+    // }
 
     function renderBoard() {
         return(

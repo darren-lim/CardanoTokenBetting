@@ -14,11 +14,11 @@ function Bet(props) {
     // const [isGameStarted, setIsGameStarted] = useState(false);
     // const [numberOfBurntPatties, setNumberOfBurntPatties] = useState(1);
 
-    function getDepositAmount() {
-        // pull deposit amount from services
-        let deposit = balance;
-        return deposit;
-    }
+    // function getDepositAmount() {
+    //     // pull deposit amount from services
+    //     let deposit = balance;
+    //     return deposit;
+    // }
 
     function handleDeposit() {
         // redirect to deposit page

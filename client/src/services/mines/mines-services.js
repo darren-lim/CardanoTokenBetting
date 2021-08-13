@@ -14,7 +14,7 @@ class MinesService {
         const userID = user.ID;
 
         const response = await axios
-            .post(API_URL + 'start', { userToken, userID, betAmount, burntPattiesAmount });
+            .post(API_URL + '/start', { userToken, userID, betAmount, burntPattiesAmount });
         // Invalid token
         if (response.data.tokenError) {
             console.log("Token error: ", response.data.tokenError);
