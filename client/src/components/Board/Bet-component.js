@@ -1,5 +1,5 @@
-import React, { useReducer, useState } from "react";
-import Card from './Card-component';
+import React, { useState } from "react";
+import MinesService from "../../services/mines/mines-services";
 import logo from '../../assets/burgerLogo.png';
 
 import 'bootstrap/dist/css/bootstrap.css'; 
@@ -43,6 +43,7 @@ function Bet(props) {
         console.log("Deposit: " + balance);
         console.log("Bet: " + betAmount);
         console.log("Burnt Patties: " + burntPattiesAmount);
+        MinesService.startMinesGame(betAmount, burntPattiesAmount);
         return null;
     }
 
